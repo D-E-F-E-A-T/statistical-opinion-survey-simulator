@@ -29,3 +29,13 @@ class VoteGeneratorRule(OpinionBase):
         except AttributeError:
             self.apply_to(people)
             return people.vote
+
+    def create_counter_data(self):
+        candidates_array = []
+        for _ in range(0, self.candidates):
+            candidates_array.append(0)
+        return candidates_array
+
+    def count_to(self, counter_data, people):
+        index = self.get_from(people)
+        counter_data[index] += 1
