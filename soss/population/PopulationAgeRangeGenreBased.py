@@ -21,3 +21,10 @@ class PopulationAgeRangeGenreBased(PopulationBase):
         for age in self.ages:
             age["population_male"].count(counter_data, opinion)
             age["population_female"].count(counter_data, opinion)
+
+    def get_population_size(self):
+        num = 0
+        for age in self.ages:
+            num += age["population_male"].get_population_size()
+            num += age["population_female"].get_population_size()
+        return num

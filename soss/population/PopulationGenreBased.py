@@ -14,3 +14,6 @@ class PopulationGenreBased(PopulationBase):
     def count(self, counter_data, opinion):
         self.males.count(counter_data, opinion)
         self.females.count(counter_data, opinion)
+
+    def get_population_size(self):
+        return self.males.get_population_size() + self.females.get_population_size()

@@ -10,3 +10,6 @@ class PopulationRandomBased(PopulationBase):
     def count(self, counter_data, opinion):
         for people in self.peoples:
             opinion.count_to(counter_data, people)
+
+    def get_population_size(self):
+        return len(self.peoples)
