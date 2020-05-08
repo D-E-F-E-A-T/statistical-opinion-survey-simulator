@@ -19,5 +19,9 @@ class OpinionBase(ABC):
         raise NotImplementedError
 
     @abstractmethod
+    def counter_data_to_proportion(self, counter_data, size):
+        raise NotImplementedError
+
+    @abstractmethod
     def count_to(self, counter_data, people):
         raise NotImplementedError

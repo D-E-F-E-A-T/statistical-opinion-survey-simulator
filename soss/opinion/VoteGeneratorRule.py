@@ -36,6 +36,10 @@ class VoteGeneratorRule(OpinionBase):
             candidates_array.append(0)
         return candidates_array
 
+    def counter_data_to_proportion(self, counter_data, size):
+        for i in range(0, len(counter_data)):
+            counter_data[i] /= size
+
     def count_to(self, counter_data, people):
         index = self.get_from(people)
         counter_data[index] += 1

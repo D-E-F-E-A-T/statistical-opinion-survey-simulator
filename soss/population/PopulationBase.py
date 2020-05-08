@@ -8,3 +8,7 @@ class PopulationBase(ABC):
     @abstractmethod
     def get_population_size(self):
         raise NotImplementedError
+
+    @abstractmethod
+    def get_sample(self, size, *args):
+        raise NotImplementedError
