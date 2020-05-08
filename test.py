@@ -42,12 +42,13 @@ vote_generator.counter_data_to_proportion(data, pop.get_population_size())
 print("Population: ", pop.get_population_size())
 print(data)
 
-sample = pop.get_sample(2399)
+sample = pop.get_sample(2401)
 print("Sample: ", sample.get_sample_size())
 data = vote_generator.create_counter_data()
 sample.count(data, vote_generator)
 vote_generator.counter_data_to_proportion(data, sample.get_sample_size())
 print(data)
-
+print("Error on IC is + - ", sample.get_error_conservator_ic())
+print("Error on IC2 is + - ", sample.get_error_optimist_ic(data))
 
 #print(vote_generator.get_from(p))
