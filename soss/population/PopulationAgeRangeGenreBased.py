@@ -4,16 +4,18 @@ from .PopulationRandomBased import PopulationRandomBased
 
 class PopulationAgeRangeGenreBased(PopulationBase):
     def __init__(self, age_genre_data):
-        def people_creator(genre):
-            return People(genre)
+        def people_creator(genre, age_range):
+            p = People(genre)
+            p.age_range = age_range
+            return p
         self.ages = []
         for age in age_genre_data:
             age_object = {
                 "description": age["description"],
                 "size_male": age["size_male"],
                 "size_female": age["size_female"],
-                "population_male": PopulationRandomBased(age["size_male"], people_creator, GENRE_MALE),
-                "population_female": PopulationRandomBased(age["size_female"], people_creator, GENRE_FEMALE)
+                "population_male": PopulationRandomBased(age["size_male"], people_creator, GENRE_MALE, age["description"]),
+                "population_female": PopulationRandomBased(age["size_female"], people_creator, GENRE_FEMALE, age["description"])
             }
             self.ages.append(age_object)
     
