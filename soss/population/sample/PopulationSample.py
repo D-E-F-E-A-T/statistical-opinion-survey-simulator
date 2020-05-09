@@ -18,21 +18,3 @@ class PopulationSample:
     def count(self, counter_data, opinion):
         for people in self.peoples:
             opinion.count_to(counter_data, people)
-
-    def get_error_conservator_ic(self):
-        z = abs(scipy.stats.norm(0, 1).ppf(0.05 / 2))
-        e = z / math.sqrt(4 * self.get_sample_size())
-        return e
-
-    def get_error_optimist_ic(self, proportion):
-        size = self.get_sample_size()
-        z = abs(scipy.stats.norm(0, 1).ppf(0.05 / 2))
-        if type(proportion) == list:
-            result = []
-            for num in proportion:
-                error = z * math.sqrt(num * (1 - num) / size)
-                result.append(error)
-            return result
-        return z * math.sqrt(proportion * (1 - proportion) / size)
-
-    # implements methods (as confiance interval) and count here

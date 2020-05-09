@@ -3,6 +3,7 @@
 #
 from soss.opinion import VoteGeneratorRule
 from soss.population import PopulationAgeRangeGenreBased
+from soss.population.sample.ic import ProportionConservator, ProportionOptimist
 #from soss.population.sample import PopulationSample
 
 vote_generator = VoteGeneratorRule([0.2992, 0.2156, 0.1526, 0.1303, 0.1097, 0.0799, 0.0127])
@@ -48,7 +49,15 @@ data = vote_generator.create_counter_data()
 sample.count(data, vote_generator)
 vote_generator.counter_data_to_proportion(data, sample.get_sample_size())
 print(data)
-print("Error on IC is + - ", sample.get_error_conservator_ic())
-print("Error on IC2 is + - ", sample.get_error_optimist_ic(data))
+
+ic1 = ProportionConservator()
+ic2 = ProportionOptimist(data)
+e1 = ic1.get_error_to(sample, 0.95)
+e2 = ic2.get_error_to(sample, 0.95)
+
+print("Conservator confiance interval:")
+print(e1)
+print("Optimist confiance interval:")
+print(e2)
 
 #print(vote_generator.get_from(p))
