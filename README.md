@@ -1,5 +1,9 @@
 # Statistical Opinion Survey Simulator
 
+<div style="width: 100%; display: flex; justify-content: center;">
+    <img src=".github/images/demo.gif" style="width: 50%" />
+</div>
+
 ## About
 
 ### What is this project

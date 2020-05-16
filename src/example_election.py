@@ -59,5 +59,3 @@ print("Conservator confiance interval:")
 print(e1)
 print("Optimist confiance interval:")
 print(e2)
-
-#print(vote_generator.get_from(p))
