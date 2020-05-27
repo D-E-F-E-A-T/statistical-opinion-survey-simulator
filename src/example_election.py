@@ -1,9 +1,9 @@
 #
 # Testing vote generator rule
 #
-from soss.opinion import VoteGeneratorRule
+from soss.attributes import VoteGeneratorRule
 from soss.population import PopulationAgeRangeGenreBased
-from soss.confiance import ProportionConservator, ProportionOptimist
+from soss.confianceinterval import ProportionConservator, ProportionOptimist
 
 vote_generator = VoteGeneratorRule([0.2992, 0.2156, 0.1526, 0.1303, 0.1097, 0.0799, 0.0127])
 
@@ -37,7 +37,7 @@ pop = PopulationAgeRangeGenreBased([
 
 data = vote_generator.create_counter_data()
 pop.count(data, vote_generator)
-vote_generator.counter_data_to_proportion(data, pop.get_population_size())
+vote_generator.counter_data_to_proportion(data)
 
 print("Population: ", pop.get_population_size())
 print(data)
@@ -46,7 +46,7 @@ sample = pop.get_sample(2401)
 print("Sample: ", sample.get_sample_size())
 data = vote_generator.create_counter_data()
 sample.count(data, vote_generator)
-vote_generator.counter_data_to_proportion(data, sample.get_sample_size())
+vote_generator.counter_data_to_proportion(data)
 print(data)
 
 ic1 = ProportionConservator()

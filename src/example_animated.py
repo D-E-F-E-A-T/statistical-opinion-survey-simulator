@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 from matplotlib.animation import ImageMagickWriter
-from soss.opinion import VoteGeneratorRule
+from soss.attributes import VoteGeneratorRule
 from soss.population import PopulationAgeRangeGenreBased
-from soss.confiance import ProportionConservator, ProportionOptimist
+from soss.confianceinterval import ProportionConservator, ProportionOptimist
 
 # creates a new vote generator rule for a seven candidates election
 vote_generator = VoteGeneratorRule([0.2992, 0.2156, 0.1526, 0.1303, 0.1097, 0.0799, 0.0127])
@@ -45,7 +45,7 @@ data_census = vote_generator.create_counter_data()
 # make an census for population
 pop.count(data_census, vote_generator)
 # convert the data to the proportion
-vote_generator.counter_data_to_proportion(data_census, pop.get_population_size())
+vote_generator.counter_data_to_proportion(data_census)
 
 # define the number of survey interations
 num_interacoes = 0
@@ -96,7 +96,7 @@ def new_sampling():
     # make the count in the sample
     sample.count(data_sample, vote_generator)
     # convert the data for the proportion
-    vote_generator.counter_data_to_proportion(data_sample, sample.get_sample_size())
+    vote_generator.counter_data_to_proportion(data_sample)
     # create a new confiance interval
     ic1 = ProportionConservator()
     e = ic1.get_error_to(sample, 0.95)

@@ -1,5 +1,5 @@
 # import used modules
-from soss.confiance import ProportionConservator
+from soss.confianceinterval import ProportionConservator
 
 # get sample size for proportion with 0.95 
 # of confiability and an max error of 0.02

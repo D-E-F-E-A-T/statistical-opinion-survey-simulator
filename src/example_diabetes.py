@@ -1,13 +1,13 @@
 # Import used modules
-from soss.opinion import DoenceState
-from soss.population import PopulationRandomBased, People, GENRE_UNKNOWN
-from soss.confiance import ProportionConservator, ProportionOptimist
+from soss.attributes import DiseaseState
+from soss.population import PopulationRandom, People, GENRE_UNKNOWN
+from soss.confianceinterval import ProportionConservator, ProportionOptimist
 
 # create a new doence state for diabetes, with a 
 # probability of 0.4 (40%) for the people has diabetes
 # and a probability of 0.55 (55%) for the peoples with
 # diabetes known if has the doence
-diabetes_state = DoenceState("Diabetes", 0.4, 0.55)
+diabetes_state = DiseaseState("Diabetes", 0.4, 0.55)
 
 # creates a function for create peoples for this experiment
 def create_people():
@@ -20,14 +20,14 @@ def create_people():
     return p
 
 # create a new population with 1500000 peoples
-population = PopulationRandomBased(1500000, create_people)
+population = PopulationRandom(1500000, create_people)
 
 # create a new counter data for an census with 1500000 peoples
 diabetes_census = diabetes_state.create_counter_data()
 # count the information in the peoples of the population
 population.count(diabetes_census, diabetes_state)
 # transform the census data to proportion
-diabetes_state.counter_data_to_proportion(diabetes_census, population.get_population_size())
+diabetes_state.counter_data_to_proportion(diabetes_census)
 # show the information
 print("Census with 1.500.000 peoples")
 print(diabetes_census)
@@ -39,7 +39,7 @@ diabetes_sample = diabetes_state.create_counter_data()
 # count the information in the people of the sample
 sample.count(diabetes_sample, diabetes_state)
 # transform the data to proportion
-diabetes_state.counter_data_to_proportion(diabetes_sample, sample.get_sample_size())
+diabetes_state.counter_data_to_proportion(diabetes_sample)
 # show the information
 print("Survey with 2.401 peoples")
 print(diabetes_sample)
