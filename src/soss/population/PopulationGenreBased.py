@@ -17,3 +17,5 @@ class PopulationGenreBased(PopulationBase):
 
     def get_population_size(self):
         return self.males.get_population_size() + self.females.get_population_size()
+
+    # TODO: def get_sample(self, size, *args):

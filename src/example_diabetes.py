@@ -1,7 +1,7 @@
 # Import used modules
 from soss.opinion import DoenceState
 from soss.population import PopulationRandomBased, People, GENRE_UNKNOWN
-from soss.population.sample.ic import ProportionConservator, ProportionOptimist
+from soss.confiance import ProportionConservator, ProportionOptimist
 
 # create a new doence state for diabetes, with a 
 # probability of 0.4 (40%) for the people has diabetes

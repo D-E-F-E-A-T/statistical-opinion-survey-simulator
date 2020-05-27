@@ -5,7 +5,7 @@ import matplotlib.animation as animation
 from matplotlib.animation import ImageMagickWriter
 from soss.opinion import VoteGeneratorRule
 from soss.population import PopulationAgeRangeGenreBased
-from soss.population.sample.ic import ProportionConservator, ProportionOptimist
+from soss.confiance import ProportionConservator, ProportionOptimist
 
 # creates a new vote generator rule for a seven candidates election
 vote_generator = VoteGeneratorRule([0.2992, 0.2156, 0.1526, 0.1303, 0.1097, 0.0799, 0.0127])

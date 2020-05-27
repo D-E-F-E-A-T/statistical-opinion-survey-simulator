@@ -20,3 +20,5 @@ class PopulationAgeRangeBased(PopulationBase):
         for age in self.ages:
             num += age["population"].get_population_size()
         return num
+
+    # TODO: def get_sample(self, size, *args):

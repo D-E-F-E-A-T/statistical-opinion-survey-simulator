@@ -2,7 +2,7 @@ import math
 from .People import People, GENRE_MALE, GENRE_FEMALE
 from .PopulationBase import PopulationBase
 from .PopulationRandomBased import PopulationRandomBased
-from .sample import PopulationSample
+from ..sample import PopulationSample
 
 class PopulationAgeRangeGenreBased(PopulationBase):
     def __init__(self, age_genre_data):

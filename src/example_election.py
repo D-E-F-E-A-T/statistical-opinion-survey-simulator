@@ -3,8 +3,7 @@
 #
 from soss.opinion import VoteGeneratorRule
 from soss.population import PopulationAgeRangeGenreBased
-from soss.population.sample.ic import ProportionConservator, ProportionOptimist
-#from soss.population.sample import PopulationSample
+from soss.confiance import ProportionConservator, ProportionOptimist
 
 vote_generator = VoteGeneratorRule([0.2992, 0.2156, 0.1526, 0.1303, 0.1097, 0.0799, 0.0127])
 

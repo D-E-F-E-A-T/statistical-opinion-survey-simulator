@@ -1,6 +1,6 @@
 import random
 from .PopulationBase import PopulationBase
-from .sample import PopulationSample
+from ..sample import PopulationSample
 
 class PopulationRandomBased(PopulationBase):
     def __init__(self, size, people_creator, *args):
